@@ -1,6 +1,6 @@
 import { ExemplesLink } from "./types"
 
-export const API = "http://noembed.com/embed?url="
+export const API = "https://noembed.com/embed?url="
 
 export const HTTP_STATUS_CODE_OK = 200
 

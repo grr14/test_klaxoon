@@ -7,16 +7,27 @@ import { gray1 } from "./common/mixins"
 import LeftColumn from "./components/LeftColumn"
 
 function App() {
+  /* url saisie par l'utilisateur */
   const [url, setUrl] = useState("")
+
+  /* True si la ressource est inexistante */
   const [isError, setIsError] = useState(false)
+
+  /* Array contenant les bookmarks ajoutes par l'utilisateur */
   const [bookmarks, setBookmarks] = useState<Array<Bookmark>>([])
 
+  /**
+   * Fonction de suppression d'un bookmark de l'application
+   *
+   * @param url - url du bookmark a supprimer
+   */
   const deleteBookmark = (url: string) => {
     const filtered = bookmarks.filter((bookmark) => bookmark.url !== url)
 
     setBookmarks(filtered)
   }
 
+  /* Appel a l'API sera effectue a chaque fois que l'utilisateur submit le formulaire (si url valide) */
   useEffect(() => {
     fetch(`${API}${url}`)
       .then((response) => {

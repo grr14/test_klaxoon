@@ -8,6 +8,13 @@ interface LeftColumnProps {
   isError: boolean
 }
 
+/**
+ * Composant contenant le formulaire ainsi que les eventuels messages d'erreurs et des liens exemples
+ *
+ * @param setUrl - fonction pour la gestion de la valeur de l'url saisie
+ * @param isError - True si la ressource est trouvee, False sinon
+ * @returns
+ */
 const LeftColumn: React.FC<LeftColumnProps> = ({ setUrl, isError }) => {
   const [userInput, setUserInput] = useState("")
   const [isUrlValid, setIsUrlValid] = useState(true)
@@ -15,12 +22,12 @@ const LeftColumn: React.FC<LeftColumnProps> = ({ setUrl, isError }) => {
   const handleFormSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault()
 
-    /* check if the user input is valid */
+    /* on verifie si l'url saisie respecte le format attendu */
     if (isValidUserInput(userInput)) {
       setIsUrlValid(true)
       setUrl(userInput)
     } else {
-      /* if not, we don't do the API call */
+      /* si ca n'est pas  le cas, on n'appelle pas l'API */
       setIsUrlValid(false)
       return
     }

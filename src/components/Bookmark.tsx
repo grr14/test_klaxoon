@@ -8,6 +8,13 @@ interface BookmarkProps {
   deleteBookmark: (url: string) => void
 }
 
+/**
+ * Composant pour display les infos d'un bookmark, et pour le supprimer
+ *
+ * @param bookmark - bookmark a display
+ * @param deleteBookmark - fonction de suppression
+ */
+
 const Bookmark: React.FC<BookmarkProps> = ({ bookmark, deleteBookmark }) => {
   return (
     <div

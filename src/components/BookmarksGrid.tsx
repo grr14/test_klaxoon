@@ -6,6 +6,13 @@ interface BookmarksGridProps {
   deleteBookmark: (url: string) => void
 }
 
+/**
+ * Wrapper pour display tous les bookmarks ajoutes dqns l'appli
+ *
+ * @param bookmarks - un array de bookmarks
+ * @param deleteBookmark - fonction de suppression
+ */
+
 const BookmarksGrid = ({ bookmarks, deleteBookmark }: BookmarksGridProps) => {
   return (
     <div

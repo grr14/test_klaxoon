@@ -37,7 +37,13 @@ export const exemples: Array<ExemplesLink> = [
     description: "Lien invalide car sans préfixe http",
   },
   {
+    link: "https://www.vimeo.com/565486455",
+    description: "Lien vers une video inexistante",
+  },
+  {
     link: "https://www.youtube.com/watch?v=GWHTaILzS48",
     description: "Un autre lien invalide car ni Vimeo ni Flickr",
   },
 ]
+
+export const GITHUB = "https://github.com/grr14/test_klaxoon"

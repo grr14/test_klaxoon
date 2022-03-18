@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useState } from "react"
-import { exemples } from "../common/constants"
+import { exemples, GITHUB } from "../common/constants"
 import { gray2, gray3 } from "../common/mixins"
 import { isValidUserInput } from "../common/utils"
 
@@ -87,6 +87,17 @@ const LeftColumn: React.FC<LeftColumnProps> = ({ setUrl, isError }) => {
             </React.Fragment>
           ))}
         </dl>
+      </div>
+
+      <div>
+        <p
+          style={{ margin: "15px 0 0", fontSize: "1.2em", fontWeight: "bold" }}
+        >
+          Code disponible sur mon{" "}
+          <a href={GITHUB} target="_blank" rel="noopener noreferrer">
+            github
+          </a>
+        </p>
       </div>
     </div>
   )

@@ -16,8 +16,8 @@ const BookmarksGrid = ({ bookmarks, deleteBookmark }: BookmarksGridProps) => {
       {bookmarks.length > 0 ? (
         <div
           style={{
-            display: "flex",
-            flexWrap: "wrap",
+            display: "grid",
+            gridTemplateColumns: "repeat(3,1fr)",
           }}
         >
           {bookmarks.map((bookmark, idx) => (

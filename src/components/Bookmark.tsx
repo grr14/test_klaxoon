@@ -16,8 +16,6 @@ const Bookmark: React.FC<BookmarkProps> = ({ bookmark, deleteBookmark }) => {
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
-        minHeight: "200px",
-        maxWidth: "500px",
         margin: "0 5px 5px 0",
         border: "solid 1px black",
         borderRadius: "10px",

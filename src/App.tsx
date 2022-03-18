@@ -8,6 +8,7 @@ import LeftColumn from "./components/LeftColumn"
 
 function App() {
   const [url, setUrl] = useState("")
+  const [isError, setIsError] = useState(false)
   const [bookmarks, setBookmarks] = useState<Array<Bookmark>>([])
 
   const deleteBookmark = (url: string) => {
@@ -25,6 +26,12 @@ function App() {
         return response.json()
       })
       .then((data: Bookmark) => {
+        /* L'API renvoie 200 meme quand l'url est celui d'une ressource inexistante donc je gere ce cas ici */
+        if (data.hasOwnProperty("error")) {
+          setIsError(true)
+          throw new Error("Ressource non trouvée")
+        }
+        setIsError(false)
         setBookmarks([...bookmarks, data])
       })
       .catch((error: Error) => {
@@ -42,7 +49,7 @@ function App() {
       }}
     >
       {/* Partie Gauche */}
-      <LeftColumn setUrl={setUrl} />
+      <LeftColumn setUrl={setUrl} isError={isError} />
 
       {/* Partie droite*/}
       <BookmarksGrid bookmarks={bookmarks} deleteBookmark={deleteBookmark} />

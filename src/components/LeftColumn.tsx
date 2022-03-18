@@ -5,9 +5,10 @@ import { isValidUserInput } from "../common/utils"
 
 interface LeftColumnProps {
   setUrl: Dispatch<SetStateAction<string>>
+  isError: boolean
 }
 
-const LeftColumn: React.FC<LeftColumnProps> = ({ setUrl }) => {
+const LeftColumn: React.FC<LeftColumnProps> = ({ setUrl, isError }) => {
   const [userInput, setUserInput] = useState("")
   const [isUrlValid, setIsUrlValid] = useState(true)
 
@@ -61,6 +62,12 @@ const LeftColumn: React.FC<LeftColumnProps> = ({ setUrl }) => {
       {!isUrlValid && (
         <div style={{ marginTop: "5px", color: "#9B2C2C" }}>
           L'URL saisie n'est pas valide !
+        </div>
+      )}
+
+      {isError && (
+        <div style={{ marginTop: "5px", color: "#9B2C2C" }}>
+          La ressource demandée n'existe pas.
         </div>
       )}
 
